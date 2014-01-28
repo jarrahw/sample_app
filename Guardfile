@@ -46,7 +46,7 @@ guard 'rspec', all_after_pass: false, cli: '--drb' do
     end
 
 
-      watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+    watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
     # Capybara features specs
     watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
@@ -54,7 +54,7 @@ guard 'rspec', all_after_pass: false, cli: '--drb' do
     # Turnip features and steps
     watch(%r{^spec/acceptance/(.+)\.feature$})
     watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
-  end
+end
 
 
 
